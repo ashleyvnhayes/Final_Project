@@ -1,0 +1,50 @@
+body {
+	font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+	background-color: #48A882;
+	margin-left: 100px;
+	margin-right: 100px;
+	color: #fff;
+
+}
+
+header{
+    font-family: 'Crafty Girls', cursive;
+    font-size: 56px;
+    text-shadow: 4px 4px 4px #aaa;
+	text-align: center;
+	margin-bottom: 0px;
+	
+	
+}
+
+h1{
+    font-family: 'Crafty Girls', cursive;
+    font-size: 32px;
+    text-shadow: 4px 4px 4px #aaa;
+	text-align: center;
+	margin-bottom: 0px;
+	
+}	
+
+#board{
+	margin-top: 150px; 
+	text-align: center;
+
+	
+
+}
+
+#grid{
+	margin: 0 auto;
+}
+
+.pic{
+	width: 180px;
+	height: 160px;
+}
+
+.btn{
+	margin-top: 50px; 
+}
