@@ -2,14 +2,15 @@ var cards = ['img/beach.jpg','img/luna.jpg','img/onsen.jpg','img/potter.jpg','im
 
 $(document).ready(function(){
 	$('button').on('click', function(){
-		$('td').remove();
-		for (i = 0; i < cards.length; i++){
-			$('<img src="' + cards[Math.floor(Math.random() * cards.length)] + '">').css({"width": "180px", "height": "160px", "padding": "10px"}).appendTo('table');
-
-
-			
-
+		
+    	var board = $("#board");
+	    var pics = board.children();
+	    for (i = 0; i < pics.length; i++){
+		board.append($('td')).append(pics.splice(Math.floor(Math.random() * pics.length), 1)[0]);
+    	
 		};
+		
+		
 	});
 
 });	
