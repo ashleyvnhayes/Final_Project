@@ -33,7 +33,7 @@ h1{
 	width: 753px;
 	max-height: 660px;
 	margin: 0 auto;
-	margin-top: 150px; 
+	margin-top: 100px; 
 	border-color: #FFD41F;
 	border-style: dotted;
 	border-width: 10px;
@@ -51,6 +51,7 @@ h1{
 	height: 160px;
 	margin: 0px;
 	display: inline-table;
+
 }
 
 
