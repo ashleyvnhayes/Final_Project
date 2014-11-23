@@ -30,8 +30,8 @@ h1{
 
 #board{
 	
-	width: 753px;
-	max-height: 660px;
+	width: 770px;
+	max-height: 700px;
 	margin: 0 auto;
 	margin-top: 100px; 
 	border-color: #FFD41F;
@@ -40,6 +40,18 @@ h1{
 
 }
 
+.flip {
+    -webkit-perspective: 800px;
+    width: 180px;
+	height: 160px;
+	margin: 0px;
+	position: relative;
+	display: inline-table;
+}
+
+.flip .card .flipped {
+  -webkit-transform: rotatex(-180deg);
+}
 
 .pic{
 	width: 180px;
@@ -53,10 +65,41 @@ h1{
 	display: inline-table;
 
 }
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden ;
+  z-index: 1;
+    
+}
 
+.flip .card .front {
+ 
+    position: absolute;
+   z-index: 1;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+.flip .card .back {
+  -webkit-transform: rotatex(-180deg);
+    background: blue;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
 
 .btn{
 	margin: 0 auto;
 	margin-top: 50px; 
 	display: block;
 } 
+
+ 
