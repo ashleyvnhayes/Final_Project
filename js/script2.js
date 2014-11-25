@@ -1,38 +1,42 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 	
+	var selectedPair = [];
+
 	 $('.flip').click(function(){      
-
+	 	
 		
-		$(this).find('.card').toggleClass('flipped') //flips cards  
+		$(this).find('.card').toggleClass('flipped'); //flips cards  
 		
-		var selectedPair = $('.flipped .back img');
-		var healthyPair = $('.flipped .back .matched img');
+		selectedPair.push($(this));
 
-		if (selectedPair.length === 2){			//checks cards when there are two cards in the array
-			var firstCard = selectedPair[0].src;
-        	var secondCard = selectedPair[1].src;
-        	
-        		if (firstCard !== secondCard){
-					console.log('not matched');
-					$(selectedPair).parent().parent().removeClass('flipped'); //if sources are not the same, flip cards back over
-					
-						
+
+		var firstCard = $(selectedPair[0]).find('.back').find('img').attr('src');
+        var secondCard = $(selectedPair[1]).find('.back').find('img').attr('src'); 
+			
+        	if (selectedPair.length === 2){
+				
+				if (firstCard !== secondCard){
+					setTimeout(unflip(selectedPair) ,2000);
+
 				}
-				else{
-					console.log('matched');
-					$(selectedPair).parent().parent().addClass('matched');	//
-					healthyPair.push('.matched');
-				};			
-							
-			
-		};	
-		
-	
+					else {
+						console.log('MATCH!');
+					};
+				selectedPair.pop();		
+				selectedPair.pop();
 
-		});	
 
+				};	
+
+
+
+	 });
 			
-														
+		var unflip = function(selectedPairElements){
+			$(selectedPairElements[0]).children('.flipped').removeClass('flipped'); //set timeout function around remove class actions
+			$(selectedPairElements[1]).children('.flipped').removeClass('flipped');
+
+		}												
 		
 		
       
@@ -45,12 +49,11 @@ $(document).ready(function(){
 	    for (i = 0; i < pics.length; i++){
 		board.append($('td')).append(pics.splice(Math.floor(Math.random() * pics.length), 1)[0]); //shuffles pictures (reset)
 		$('.card').removeClass('flipped');
-
-    	
 		};	
 		
 	});
-});	
+	 
+// });	
 
 
 
