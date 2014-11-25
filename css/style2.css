@@ -49,7 +49,7 @@ h1{
 	display: inline-table;
 }
 
-.flip .card .flipped {
+.flipped {
   -webkit-transform: rotatex(-180deg);
 }
 
@@ -65,13 +65,13 @@ h1{
 	display: inline-table;
 
 }
-.flip .card {
+.card {
   width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 0.5s;
 }
-.flip .card .face {
+.face {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -80,7 +80,7 @@ h1{
     
 }
 
-.flip .card .front {
+.front {
  
     position: absolute;
    z-index: 1;
@@ -88,7 +88,7 @@ h1{
     color: white;
     cursor: pointer;
 }
-.flip .card .back {
+.back {
   -webkit-transform: rotatex(-180deg);
     background: blue;
     background: white;

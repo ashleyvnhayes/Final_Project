@@ -2,27 +2,28 @@ $(document).ready(function(){
 	
 	 $('.flip').click(function(){      
 
-		$(this).find('.card').toggleClass('flipped'); //flips cards  
-		var selectedPair = $('.flipped .back img');
 		
+		$(this).find('.card').toggleClass('flipped') //flips cards  
+		
+		var selectedPair = $('.flipped .back img');
+		var healthyPair = $('.flipped .back .matched img');
 
-		if (selectedPair.length === 2){			
-			var firstcard = selectedPair[0].src;
-        	var secondcard = selectedPair[1].src;
+		if (selectedPair.length === 2){			//checks cards when there are two cards in the array
+			var firstCard = selectedPair[0].src;
+        	var secondCard = selectedPair[1].src;
         	
-        		if (firstcard !== secondcard){
+        		if (firstCard !== secondCard){
 					console.log('not matched');
-					$(selectedPair).parent().parent().removeClass('flipped');
-					selectedPair.length = 0;
+					$(selectedPair).parent().parent().removeClass('flipped'); //if sources are not the same, flip cards back over
+					
 						
 				}
 				else{
 					console.log('matched');
-					
-				};
-			
-				
-
+					$(selectedPair).parent().parent().addClass('matched');	//
+					healthyPair.push('.matched');
+				};			
+							
 			
 		};	
 		
@@ -32,10 +33,8 @@ $(document).ready(function(){
 
 			
 														
-		//if sources are not the same, flip cards back over
-		//otherwise, add them to the matched array and empty the flipped card array
-
-// 
+		
+		
       
   
 
