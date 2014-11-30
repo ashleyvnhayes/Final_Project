@@ -1,6 +1,6 @@
 body {
-	/*font-family: 'Lato', sans-serif;
-    font-weight: 300;*/
+	font-family: 'Lato', sans-serif;
+    font-weight: 300;
     font-size: 24px;
 	background-color: #48A882;
 	margin-left: 100px;
@@ -30,8 +30,8 @@ h1{
 
 #board{
 	
-	width: 770px;
-	max-height: 700px;
+	width: 1134px;
+	max-height: 1200px;
 	margin: 0 auto;
 	margin-top: 100px; 
 	border-color: #FFD41F;
@@ -102,4 +102,13 @@ h1{
 	display: block;
 } 
 
- 
+.matchmsg{
+	font-family: 'Monoton', cursive;
+	font-weight: 400;
+	font-size: 200px;
+	color: yellow;
+	text-shadow: 4px 4px 4px #FF0000;
+	text-align: center;
+
+}
+

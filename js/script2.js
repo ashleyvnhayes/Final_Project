@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	//1. Shuffle pictures on page load
-			$('.card').removeClass('flipped');
+	$('.card').removeClass('flipped');
+	$('.matchmsg').hide();
 	var randomizeCards = function(){
 		var board = $("#board");
 		    var pics = board.children();
@@ -8,7 +9,7 @@ $(document).ready(function(){
 			board.append($('td')).append(pics.splice(Math.floor(Math.random() * pics.length), 1)[0]); 
 			};	
 
-	};
+		};
 	randomizeCards(); 
 	
 
@@ -26,6 +27,7 @@ $(document).ready(function(){
 			$(selectedPair[0]).children('.flipped').removeClass('flipped'); //timeout function for remove class method
 			$(selectedPair[1]).children('.flipped').removeClass('flipped');
 		};
+
 			
         	if (selectedPair.length === 2){
 				
@@ -34,6 +36,11 @@ $(document).ready(function(){
 					}
 					else {
 						console.log('MATCH!');
+						$('.matchmsg').show();
+						setTimeout(function(){
+							$('.matchmsg').hide();
+
+						}, 3000);
 					};
 				
 				setTimeout(function(){	 //timeout function for emptying array
@@ -49,8 +56,8 @@ $(document).ready(function(){
 
 	 });
 			
-//3. Start over														
-$('button').on('click', randomizeCards());
+	//3. Start over														
+	$('button').click(randomizeCards);
 	 
 });	
 
