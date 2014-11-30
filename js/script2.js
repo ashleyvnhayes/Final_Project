@@ -1,29 +1,46 @@
-// $(document).ready(function(){
+$(document).ready(function(){
+	//1. Shuffle pictures on page load
+			$('.card').removeClass('flipped');
+	var randomizeCards = function(){
+		var board = $("#board");
+		    var pics = board.children();
+		    for (i = 0; i < pics.length; i++){
+			board.append($('td')).append(pics.splice(Math.floor(Math.random() * pics.length), 1)[0]); 
+			};	
+
+	};
+	randomizeCards(); 
 	
+
+	//2. Check to see whether to selcted cards match
 	var selectedPair = [];
 
 	 $('.flip').click(function(){      
-	 	
-		
 		$(this).find('.card').toggleClass('flipped'); //flips cards  
-		
 		selectedPair.push($(this));
-
 
 		var firstCard = $(selectedPair[0]).find('.back').find('img').attr('src');
         var secondCard = $(selectedPair[1]).find('.back').find('img').attr('src'); 
+        
+        var unflip = function(){
+			$(selectedPair[0]).children('.flipped').removeClass('flipped'); //timeout function for remove class method
+			$(selectedPair[1]).children('.flipped').removeClass('flipped');
+		};
 			
         	if (selectedPair.length === 2){
 				
 				if (firstCard !== secondCard){
-					setTimeout(unflip(selectedPair) ,2000);
-
-				}
+					setTimeout(unflip,1000);
+					}
 					else {
 						console.log('MATCH!');
 					};
-				selectedPair.pop();		
-				selectedPair.pop();
+				
+				setTimeout(function(){	 //timeout function for emptying array
+					selectedPair.pop();		
+					selectedPair.pop();
+					}, 1500);	
+				
 
 
 				};	
@@ -32,28 +49,10 @@
 
 	 });
 			
-		var unflip = function(selectedPairElements){
-			$(selectedPairElements[0]).children('.flipped').removeClass('flipped'); //set timeout function around remove class actions
-			$(selectedPairElements[1]).children('.flipped').removeClass('flipped');
-
-		}												
-		
-		
-      
-  
-
-	$('button').on('click', function(){
-		
-    	var board = $("#board");
-	    var pics = board.children();
-	    for (i = 0; i < pics.length; i++){
-		board.append($('td')).append(pics.splice(Math.floor(Math.random() * pics.length), 1)[0]); //shuffles pictures (reset)
-		$('.card').removeClass('flipped');
-		};	
-		
-	});
+//3. Start over														
+$('button').on('click', randomizeCards());
 	 
-// });	
+});	
 
 
 
